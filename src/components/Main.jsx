@@ -5,7 +5,7 @@ import { useState } from "react";
 const Main = () => {
     const [selectedLanguageId, setSelectedLanguageId] = useState(null);
     const handleButtonClick = (id) => {
-        setSelectedLanguageId(id);
+        setSelectedLanguageId(prevId => (prevId === id ? null : id));
     }
     return (
         <main>
