@@ -8,17 +8,17 @@ const Main = () => {
         setSelectedLanguageId(prevId => (prevId === id ? null : id));
     }
     return (
-        <main>
+        <main className="container">
             {/*bottoni per il linguaggio*/}
             <div className="btn-group mb.-4" role="group">
                 {Languages.map(linguaggio => (
-                    <div key={linguaggio.id}>
-                        <button onClick={() => handleButtonClick(linguaggio.id)}>
+                    <div key={linguaggio.id} className="mb-3">
+                        <button onClick={() => handleButtonClick(linguaggio.id)} className={`btn ${linguaggio.title === "HTML" ? "btn-warning" : "btn-primary"} me-2`}>
                             {linguaggio.title}
                         </button>
                         {selectedLanguageId === linguaggio.id && (
-                            <div>
-                                {linguaggio.description}
+                            <div className="card p-3 ">
+                                <p className="card-text"> {linguaggio.description}</p>
                             </div>
                         )}
                     </div>
